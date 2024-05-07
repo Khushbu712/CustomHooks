@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Custom from "./login";
+import Reset from "./ResetPass";
 
 function App() {
+  
+  const[form,setForm] = useState("login");
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className="App">
+  <h1>Welcome</h1>
+
+  {form === "login" ? <Custom/>:<Reset/>}
+
+  <button onClick={() =>{setForm(form === "login"? "reset":"login")}}>
+  {form === "login"? "Forget Password":"Back to Login"}
+  </button>
+  </div>
   );
 }
 
